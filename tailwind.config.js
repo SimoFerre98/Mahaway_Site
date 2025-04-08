@@ -7,11 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        'dark-brown': '#413620',
-        'golden-brown': '#9C6615',
-        'golden-light': '#9F7833',
-        'sunset': '#FFD791',
-        'french-gray': '#CDD1DE',
+        'dark-brown': '#344e41',
+        'golden-brown': '#3a5a40',
+        'golden-light': '#588157',
+        'sunset': '#a3b18a',
+        'french-gray': '#dad7cd',
         'white': '#ffffff',
         'black': '#000000',
       },

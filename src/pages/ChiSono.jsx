@@ -1,4 +1,5 @@
 import React from 'react';
+import VittorioProfile from '../assets/Images/VittorioProfile.jpg';
 
 const ChiSono = () => {
   return (
@@ -8,8 +9,8 @@ const ChiSono = () => {
         
         <div className="mb-12 bg-accent p-8 rounded-lg">
           <div className="flex flex-col md:flex-row gap-8 items-center">
-            <div className="w-full md:w-1/3 aspect-square bg-white rounded-full overflow-hidden flex items-center justify-center">
-              <span className="text-secondary">Foto di Vittorio</span>
+            <div className="w-full md:w-1/3 aspect-square rounded-full overflow-hidden flex items-center justify-center glass-card">
+              <img src={VittorioProfile} alt="Vittorio - Fondatore di Mahaway" className="w-full h-full object-cover" />
             </div>
             
             <div className="w-full md:w-2/3">

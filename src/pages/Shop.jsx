@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+// Importazione delle immagini delle magliette
+import Maglietta1 from '../assets/Images/Maglietta1.jpg'; 
+import Maglietta2 from '../assets/Images/Maglietta2.jpg';
+import Maglietta3 from '../assets/Images/Maglietta3.jpg';
 
 const Shop = () => {
   // Categorie di prodotti
@@ -13,24 +17,35 @@ const Shop = () => {
     setIsLoaded(true);
   }, []);
   
+
+
   // Prodotti di esempio con immagini reali
   const products = [
     {
       id: 1,
-      name: 'T-Shirt "Freestyle"',
+      name: 'T-Shirt Mahaway Classic',
       category: 'Abbigliamento',
       price: 29.99,
-      description: 'T-shirt in cotone biologico con stampa artistica ispirata al freestyle.',
-      image: 'https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80',
+      description: 'T-shirt in cotone biologico con logo Mahaway. Design minimalista ed elegante.',
+      image: Maglietta1,
       badge: 'Nuovo'
     },
     {
       id: 2,
-      name: 'Felpa "Mahaway"',
+      name: 'T-Shirt Mahaway Art',
       category: 'Abbigliamento',
-      price: 49.99,
-      description: 'Felpa in materiali sostenibili con logo Mahaway ricamato.',
-      image: 'https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80',
+      price: 34.99,
+      description: 'T-shirt artistica con stampa esclusiva Mahaway. Edizione limitata.',
+      image: Maglietta2,
+      badge: 'Limited Edition'
+    },
+    {
+      id: 3,
+      name: 'T-Shirt Mahaway Urban',
+      category: 'Abbigliamento',
+      price: 32.99,
+      description: 'T-shirt urban style con design contemporaneo Mahaway.',
+      image: Maglietta3,
       badge: 'Bestseller'
     },
     {
@@ -76,8 +91,8 @@ const Shop = () => {
     ? products 
     : products.filter(product => product.category === selectedCategory);
   
-  return (
-    <div className={`min-h-screen py-16 px-6 bg-background ${isLoaded ? 'animate-fadeIn' : ''}`} style={{ backgroundImage: 'linear-gradient(to bottom, #f8fafc, #f0f7ff)' }}>
+return (
+    <div className={`min-h-screen py-16 px-6 bg-white ${isLoaded ? 'animate-fadeIn' : ''}`}>
       <div className="container mx-auto max-w-6xl">
         {/* Elementi decorativi di sfondo */}
         <div className="fixed top-20 left-10 w-32 h-32 bg-primary opacity-5 rounded-full blur-xl"></div>
@@ -123,14 +138,12 @@ const Shop = () => {
           ))}
         </div>
         
-        {/* Griglia prodotti */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Elemento decorativo */}
-          <div className="absolute top-1/3 right-0 w-20 h-20 bg-info opacity-10 rounded-full blur-md"></div>
+        {/* Griglia prodotti Bento */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {filteredProducts.map((product, index) => (
             <div 
               key={product.id} 
-              className={`bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 duration-300 ${isLoaded ? 'animate-slideUp' : 'opacity-0'}`}
+              className={`glass-card border border-primary overflow-hidden transition-all transform hover:-translate-y-1 duration-300 ${isLoaded ? 'animate-slideUp' : 'opacity-0'}`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="relative">
@@ -147,12 +160,12 @@ const Shop = () => {
               </div>
               <div className="p-6 relative">
                 <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold text-primary">{product.name}</h3>
-                  <span className="font-bold text-lg bg-accent px-2 py-1 rounded-md">€{product.price.toFixed(2)}</span>
+                  <h3 className="text-xl font-bold text-dark-brown">{product.name}</h3>
+                  <span className="font-bold text-lg text-golden-brown">€{product.price.toFixed(2)}</span>
                 </div>
-                <p className="text-sm text-gray-500 mb-2 inline-block bg-accent px-2 py-1 rounded-full">{product.category}</p>
-                <p className="text-secondary mb-4">{product.description}</p>
-                <button className="w-full bg-primary text-white py-3 rounded-md hover:bg-opacity-90 transition-all flex items-center justify-center gap-2 shadow-md">
+                <p className="text-sm text-golden-brown mb-2 inline-block">{product.category}</p>
+                <p className="text-dark-brown mb-4">{product.description}</p>
+                <button className="w-full bg-dark-brown hover:bg-golden-brown text-white py-3 rounded-md transition-all flex items-center justify-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
                   </svg>
@@ -164,17 +177,17 @@ const Shop = () => {
         </div>
         
         {/* Informazioni aggiuntive */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-success transform transition-all duration-300 hover:scale-105">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="glass-card p-6 transform transition-all duration-300 hover:scale-105">
             <div className="flex items-center mb-4">
-              <div className="bg-success bg-opacity-20 p-3 rounded-full mr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-golden-light p-3 rounded-full mr-3">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-dark-brown" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-primary">Materiali Sostenibili</h3>
+              <h3 className="text-xl font-bold text-dark-brown">Materiali Sostenibili</h3>
             </div>
-            <p className="text-secondary">
+            <p className="text-golden-brown">
               Tutti i nostri prodotti sono realizzati con materiali selezionati per il loro basso impatto ambientale.
               Privilegiamo cotone biologico, tinture naturali e processi produttivi che rispettano l'ambiente.
             </p>

@@ -4,7 +4,7 @@
 
 @layer components {
   .glass-card {
-    @apply bg-golden-brown/30 backdrop-blur-md rounded-lg shadow-lg border border-french-gray/20;
+    @apply backdrop-blur-md rounded-lg shadow-lg border border-french-gray/20;
     @apply hover:bg-golden-light/40 transition-all duration-300;
   }
   

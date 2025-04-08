@@ -51,7 +51,7 @@ const Frasi = () => {
         
         <div className="grid grid-cols-1 gap-8">
           {frasi.map((frase) => (
-            <div key={frase.id} className="bg-accent p-8 rounded-lg hover:shadow-md transition-shadow">
+            <div key={frase.id} className="bg-accent border border-primary p-8 rounded-lg hover:shadow-md transition-shadow">
               <blockquote className="text-xl md:text-2xl italic mb-4">
                 "{frase.testo}"
               </blockquote>

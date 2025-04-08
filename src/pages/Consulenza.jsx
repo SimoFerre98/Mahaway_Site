@@ -47,7 +47,7 @@ const Consulenza = () => {
             <h2 className="text-2xl font-bold mb-6 text-primary">I Nostri Servizi</h2>
             
             <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white border border-primary p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-bold mb-2 text-primary">Consulenza Personale</h3>
                 <p className="text-secondary mb-4">
                   Un percorso personalizzato per aiutarti a trovare il tuo equilibrio e la tua strada.
@@ -55,7 +55,7 @@ const Consulenza = () => {
                 <p className="font-medium">A partire da €50/sessione</p>
               </div>
               
-              <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="bg-white border border-primary p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-bold mb-2 text-primary">Consulenza Artistica</h3>
                 <p className="text-secondary mb-4">
                   Supporto per artisti emergenti, consigli su produzione musicale e sviluppo creativo.
@@ -77,79 +77,44 @@ const Consulenza = () => {
             <h2 className="text-2xl font-bold mb-6 text-primary">Contattaci</h2>
             
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="nome" className="block mb-1 font-medium">Nome</label>
-                <input
-                  type="text"
-                  id="nome"
-                  name="nome"
-                  value={formData.nome}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  required
-                />
+              <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="nome" className="block text-sm/6 font-semibold text-gray-900">Nome</label>
+                  <div className="mt-2.5">
+                    <input type="text" name="nome" id="nome" value={formData.nome} onChange={handleChange} className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" required />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm/6 font-semibold text-gray-900">Email</label>
+                  <div className="mt-2.5">
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" required />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="telefono" className="block text-sm/6 font-semibold text-gray-900">Telefono</label>
+                  <div className="mt-2.5">
+                    <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="tipoConsulenza" className="block text-sm/6 font-semibold text-gray-900">Tipo di Consulenza</label>
+                  <div className="mt-2.5">
+                    <select id="tipoConsulenza" name="tipoConsulenza" value={formData.tipoConsulenza} onChange={handleChange} className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600">
+                      <option value="generale">Consulenza Generale</option>
+                      <option value="personale">Consulenza Personale</option>
+                      <option value="artistica">Consulenza Artistica</option>
+                      <option value="workshop">Workshop e Formazione</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="messaggio" className="block text-sm/6 font-semibold text-gray-900">Messaggio</label>
+                  <div className="mt-2.5">
+                    <textarea id="messaggio" name="messaggio" value={formData.messaggio} onChange={handleChange} rows="5" className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600" required></textarea>
+                  </div>
+                </div>
+                <button type="submit" className="w-full bg-primary text-white py-3 rounded-md hover:bg-opacity-90 transition-all">Invia Richiesta</button>
               </div>
-              
-              <div>
-                <label htmlFor="email" className="block mb-1 font-medium">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="telefono" className="block mb-1 font-medium">Telefono</label>
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  value={formData.telefono}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="tipoConsulenza" className="block mb-1 font-medium">Tipo di Consulenza</label>
-                <select
-                  id="tipoConsulenza"
-                  name="tipoConsulenza"
-                  value={formData.tipoConsulenza}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                >
-                  <option value="generale">Consulenza Generale</option>
-                  <option value="personale">Consulenza Personale</option>
-                  <option value="artistica">Consulenza Artistica</option>
-                  <option value="workshop">Workshop e Formazione</option>
-                </select>
-              </div>
-              
-              <div>
-                <label htmlFor="messaggio" className="block mb-1 font-medium">Messaggio</label>
-                <textarea
-                  id="messaggio"
-                  name="messaggio"
-                  value={formData.messaggio}
-                  onChange={handleChange}
-                  rows="5"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  required
-                ></textarea>
-              </div>
-              
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-3 rounded-md hover:bg-opacity-90 transition-all"
-              >
-                Invia Richiesta
-              </button>
             </form>
           </div>
         </div>
